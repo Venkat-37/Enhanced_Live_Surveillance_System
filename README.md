@@ -1,10 +1,10 @@
-# 🛡️ Enhanced Live Surveillance System
+#  Enhanced Live Surveillance System
 
 Real-time object detection and monitoring system built with **YOLOv8** and **Streamlit**. Features multi-zone monitoring, intelligent alerts with cooldown, SQLite logging, snapshot capture, and a full analytics dashboard.
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```mermaid
 graph TD
@@ -46,7 +46,7 @@ graph TD
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---------|-------------|
@@ -63,7 +63,7 @@ graph TD
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 surveillance_system/
@@ -82,7 +82,7 @@ surveillance_system/
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Install dependencies
 
@@ -126,21 +126,21 @@ streamlit run app.py
 | **RTSP/IP Camera** | Select "RTSP / IP Camera" and enter the stream URL |
 | **Video File** | Select "Video File" and upload an MP4/AVI/MOV file |
 
-> 💡 Any ONVIF/RTSP compatible IP camera works. Typical URL format: `rtsp://user:pass@192.168.1.100:554/stream`
+> Any ONVIF/RTSP compatible IP camera works. Typical URL format: `rtsp://user:pass@192.168.1.100:554/stream`
 
 ---
 
-## 🖥️ Dashboard Tabs
+##  Dashboard Tabs
 
-1. **📹 Live Feed** — Real-time video with detection overlays and status cards (FPS, detections, alerts)
-2. **🎯 ROI Zones** — Draw monitoring rectangles with custom names. Detections inside zones trigger alerts.
-3. **📊 Analytics** — Plotly charts: detections per hour, zone distribution pie, class breakdown bar
-4. **🖼️ Snapshots** — Gallery of auto-saved annotated frames from detection events
-5. **📋 Logs** — Searchable table of all detection records from SQLite
+1. ** Live Feed** — Real-time video with detection overlays and status cards (FPS, detections, alerts)
+2. ** ROI Zones** — Draw monitoring rectangles with custom names. Detections inside zones trigger alerts.
+3. ** Analytics** — Plotly charts: detections per hour, zone distribution pie, class breakdown bar
+4. ** Snapshots** — Gallery of auto-saved annotated frames from detection events
+5. ** Logs** — Searchable table of all detection records from SQLite
 
 ---
 
-## 🛠️ System Requirements
+##  System Requirements
 
 - Python 3.9+
 - Webcam or IP camera (for live monitoring)
@@ -148,6 +148,6 @@ streamlit run app.py
 
 ---
 
-## 📄 License
+##  License
 
 MIT
