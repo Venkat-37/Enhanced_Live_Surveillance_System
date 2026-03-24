@@ -7,10 +7,6 @@ dist/
 build/
 *.egg
 
-# Environment
-.env
-venv/
-.venv/
 
 # Runtime data
 detections.db
