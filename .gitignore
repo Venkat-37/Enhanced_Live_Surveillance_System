@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Environment
+.env
+venv/
+.venv/
+
+# Runtime data
+detections.db
+snapshots/
+temp_video.mp4
+
+# YOLOv8 model (auto-downloaded)
+*.pt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Test artifacts
+test_verify.db
