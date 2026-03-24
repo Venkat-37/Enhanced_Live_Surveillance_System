@@ -31,7 +31,6 @@ from snapshot_saver import SnapshotSaver
 
 st.set_page_config(
     page_title="Surveillance System",
-    page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -98,7 +97,7 @@ st.markdown("""
 
 st.markdown("""
 <div class="main-header">
-    <h1>🛡️ Enhanced Live Surveillance System</h1>
+    <h1> Enhanced Live Surveillance System</h1>
     <p>Real-time object detection • Multi-zone monitoring • Intelligent alerts</p>
 </div>
 """, unsafe_allow_html=True)
@@ -108,9 +107,9 @@ st.markdown("""
 # ────────────────────────────────────────────────────────────────
 
 with st.sidebar:
-    st.markdown("## ⚙️ Configuration")
+    st.markdown("##  Configuration")
 
-    st.markdown("### 📷 Camera Source")
+    st.markdown("###  Camera Source")
     source_type = st.selectbox(
         "Input type",
         ["Webcam", "RTSP / IP Camera", "Video File"],
@@ -135,7 +134,7 @@ with st.sidebar:
             cam_source = tmp_path
 
     st.markdown("---")
-    st.markdown("### 🎯 Detection Settings")
+    st.markdown("###  Detection Settings")
     confidence_threshold = st.slider(
         "Confidence threshold", 0.10, 1.0, 0.50, 0.05, key="conf"
     )
@@ -149,7 +148,7 @@ with st.sidebar:
     frame_skip = st.slider("Process every N frames", 1, 10, 2, key="skip")
 
     st.markdown("---")
-    st.markdown("### 🔔 Alert Settings")
+    st.markdown("###  Alert Settings")
     cooldown = st.slider(
         "Alert cooldown (seconds)", 5, 300, 30, 5, key="cooldown"
     )
@@ -208,7 +207,7 @@ alert = AlertEngine(
 # ────────────────────────────────────────────────────────────────
 
 tab_live, tab_roi, tab_analytics, tab_snapshots, tab_logs = st.tabs(
-    ["📹 Live Feed", "🎯 ROI Zones", "📊 Analytics", "🖼️ Snapshots", "📋 Logs"]
+    [" Live Feed", " ROI Zones", " Analytics", " Snapshots", " Logs"]
 )
 
 # ════════════════════════════════════════════════════════════════
@@ -345,7 +344,7 @@ with tab_live:
 # ════════════════════════════════════════════════════════════════
 
 with tab_roi:
-    st.markdown("### 🎯 Configure Monitoring Zones")
+    st.markdown("###  Configure Monitoring Zones")
     st.markdown(
         "Define rectangular monitoring zones using the controls below. "
         "Each zone triggers independent alerts when objects are detected inside it."
@@ -404,7 +403,7 @@ with tab_roi:
                 st.warning("⚠️ X2 must be > X1 and Y2 must be > Y1")
 
     # ── Visual preview ──
-    st.markdown("#### 👁️ Zone Preview (640 × 480)")
+    st.markdown("####  Zone Preview (640 × 480)")
     preview = np.full((480, 640, 3), (30, 30, 50), dtype=np.uint8)
     for z in new_zones:
         clr = tuple(z["color"])
@@ -419,7 +418,7 @@ with tab_roi:
     st.image(preview_rgb, use_container_width=True)
 
     # ── Save button ──
-    if st.button("💾 Save Zones", type="primary", use_container_width=True, key="save_zones"):
+    if st.button(" Save Zones", type="primary", use_container_width=True, key="save_zones"):
         st.session_state.zones = new_zones
         st.success(f"✅ Saved {len(new_zones)} zone(s)!")
 
@@ -437,9 +436,9 @@ with tab_roi:
 # ════════════════════════════════════════════════════════════════
 
 with tab_analytics:
-    st.markdown("### 📊 Detection Analytics")
+    st.markdown("###  Detection Analytics")
 
-    if st.button("🔄 Refresh Analytics", key="refresh_analytics"):
+    if st.button(" Refresh Analytics", key="refresh_analytics"):
         pass  # forces rerun
 
     analytics_cols = st.columns(3)
@@ -517,9 +516,9 @@ with tab_analytics:
 # ════════════════════════════════════════════════════════════════
 
 with tab_snapshots:
-    st.markdown("### 🖼️ Detection Snapshots")
+    st.markdown("###  Detection Snapshots")
 
-    if st.button("🔄 Refresh Gallery", key="refresh_gallery"):
+    if st.button(" Refresh Gallery", key="refresh_gallery"):
         pass
 
     snapshots = snapper.get_recent(n=30)
@@ -555,11 +554,11 @@ with tab_snapshots:
 # ════════════════════════════════════════════════════════════════
 
 with tab_logs:
-    st.markdown("### 📋 Detection Log")
+    st.markdown("###  Detection Log")
 
     log_cols = st.columns([1, 1, 2])
     with log_cols[0]:
-        if st.button("🔄 Refresh Logs", key="refresh_logs"):
+        if st.button(" Refresh Logs", key="refresh_logs"):
             pass
     with log_cols[1]:
         log_limit = st.selectbox("Show last", [25, 50, 100, 200], index=1, key="log_limit")
@@ -582,7 +581,7 @@ with tab_logs:
 
     # ── Clear logs ──
     with st.expander("⚠️ Danger Zone"):
-        if st.button("🗑️ Clear All Logs", type="secondary"):
+        if st.button(" Clear All Logs", type="secondary"):
             db.clear_all()
             st.success("All logs cleared.")
             st.rerun()
